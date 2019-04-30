@@ -3,5 +3,5 @@
  */
 
 export enum StorageKey {
-  token = "token"
+  token = 'token',
 }

@@ -2,18 +2,18 @@
  * Created by joeshao on 2019/1/8.
  */
 
-import { createStackNavigator } from "react-navigation";
-import { STACK_NAV_CONFIG } from "./config";
-import Login from "@src/pages/Login";
+import { createStackNavigator } from 'react-navigation'
+import { STACK_NAV_CONFIG } from './config'
+import Login from '@src/pages/Login'
 
 const LoginRouter = createStackNavigator(
   {
-    Login
+    Login,
   },
   {
-    initialRouteName: "Login",
-    ...STACK_NAV_CONFIG.main
+    initialRouteName: 'Login',
+    ...STACK_NAV_CONFIG.main,
   }
-);
+)
 
-export default LoginRouter;
+export default LoginRouter
