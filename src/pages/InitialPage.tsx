@@ -2,36 +2,31 @@
  * Created by wangsz on 2019/4/29.
  */
 
-import React from "react";
-import { Text, View } from "react-native";
-import { inject } from "mobx-react";
-import { userStore } from "@src/mobx";
-import { NavigationScreenProp, NavigationState } from "react-navigation";
-import UserStore from "@src/mobx/UserStore";
+import React from 'react'
+import { View } from 'react-native'
+import { inject } from 'mobx-react'
+import { userStore } from '@src/mobx'
+import { NavigationScreenProp, NavigationState } from 'react-navigation'
 
 interface Props {
-  navigation: NavigationScreenProp<NavigationState>;
-  userStore: UserStore;
+  navigation: NavigationScreenProp<NavigationState>
 }
 
-@inject("userStore")
+@inject('userStore')
 export default class InitialPage extends React.Component<Props> {
   constructor(props: Props) {
-    super(props);
+    super(props)
   }
 
   componentDidMount(): void {
-    if (this.props.userStore.isLogin) {
-      this.props.navigation.navigate("MainRouter");
+    if (userStore.isLogin) {
+      this.props.navigation.navigate('MainRouter')
+    } else {
+      this.props.navigation.navigate('LoginRouter')
     }
-    this.props.navigation.navigate("LoginRouter");
   }
 
   render() {
-    return (
-      <View>
-        <Text>InitialPage</Text>
-      </View>
-    );
+    return <View />
   }
 }

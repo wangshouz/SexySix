@@ -4,7 +4,7 @@
 
 import * as React from 'react'
 import TabBarIcon, { TabBarIconImages } from '@src/components/TabBarIcon'
-import { STACK_NAV_CONFIG } from '@src/router/config'
+import { STACK_NAV_CONFIG } from '@src/styles/config'
 import {
   createBottomTabNavigator,
   createStackNavigator,
@@ -26,7 +26,7 @@ const tabStackConfig = (
   return {
     title,
     tabBarIcon,
-    tabBarVisible: !(navigation.state.index > 0),
+    tabBarVisible: true,
   }
 }
 
@@ -87,4 +87,4 @@ const MainRouter = createBottomTabNavigator(
   }
 )
 
-export { MainRouter }
+export default MainRouter

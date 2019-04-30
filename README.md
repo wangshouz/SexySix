@@ -11,8 +11,12 @@ Mobx：https://github.com/SangKa/MobX-Docs-CN/tree/4.0.0/docs
 
 页面路由：https://reactnavigation.org/docs/zh-Hans/getting-started.html
 
+UI 库：https://rn.mobile.ant.design/docs/react/introduce-cn
+
 需要 link：
 
 react-native link @react-native-community/async-storage
 
 react-native link react-native-gesture-handler
+
+react-native link @ant-design/icons-react-native

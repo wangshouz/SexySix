@@ -4,7 +4,7 @@
 import { createSwitchNavigator } from 'react-navigation'
 import InitialPage from '@src/pages/InitialPage'
 import LoginRouter from '@src/router/LoginRouter'
-import { MainRouter } from '@src/router/MainRouter'
+import MainRouter from '@src/router/MainRouter'
 
 const AppRouter = createSwitchNavigator(
   {

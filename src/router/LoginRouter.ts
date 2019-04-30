@@ -3,7 +3,7 @@
  */
 
 import { createStackNavigator } from 'react-navigation'
-import { STACK_NAV_CONFIG } from './config'
+import { STACK_NAV_CONFIG } from '@src/styles/config'
 import Login from '@src/pages/Login'
 
 const LoginRouter = createStackNavigator(

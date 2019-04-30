@@ -7,13 +7,18 @@
  */
 
 import React, { Component } from 'react'
-import { PermissionsAndroid, Platform, View } from 'react-native'
+import { PermissionsAndroid, Platform } from 'react-native'
 import { Provider } from 'mobx-react'
 import { createAppContainer } from 'react-navigation'
 import AppRouter from '@src/router'
 import * as RootStore from '@src/mobx'
+import { Provider as AntProvider } from '@ant-design/react-native'
+import { buildGlobalStyles } from '@src/styles'
 
 interface Props {}
+
+// 初始化通用样式
+buildGlobalStyles()
 
 interface State {
   loaded: boolean
@@ -21,7 +26,6 @@ interface State {
 export default class App extends Component<Props, State> {
   constructor(props: Props) {
     super(props)
-    console.log('dddddddddddddd')
 
     this.state = {
       loaded: false,
@@ -29,8 +33,6 @@ export default class App extends Component<Props, State> {
   }
 
   async componentDidMount() {
-    console.log('aaaaaa')
-
     await RootStore.userStore.loadToken()
 
     this.setState({ loaded: true })
@@ -46,10 +48,6 @@ export default class App extends Component<Props, State> {
     try {
       const permissions: string[] = [
         PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-        // PermissionsAndroid.PERMISSIONS.CAMERA,
-        // PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-        // PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
-        // PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
       ]
       await PermissionsAndroid.requestMultiple(permissions)
     } catch (e) {}
@@ -64,7 +62,7 @@ export default class App extends Component<Props, State> {
     }
     return (
       <Provider {...RootStore}>
-        <View>{router}</View>
+        <AntProvider>{router}</AntProvider>
       </Provider>
     )
   }
